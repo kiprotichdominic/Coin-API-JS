@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin API Project</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,400;0,700;1,100;1,400;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="main">
+        <div class="navbar">
+            <ul class="navbar-ul">
+                <li>
+                    Coin API
+                </li>
+            </ul>
+        </div>
+        <div class="d-flex justify-content-center">
+            <div action="">
+                <input placeholder="Search for Crypto By Name" type="text" name="searchbar" id="searchbar">
+            </div>
+            <div class="spinner">
+                <div class="lds-roller" id="loading">
+                    <div></div>
+                    <div></div>
+                    <div></div>console.log("Its Working");
+
+
+                    window.addEventListener("DOMContentLoaded", (event) => {
+                    console.log("DOM Fully loaded")
+                    const URL = "https://api.coincap.io/v2/assets";
+                    hideTable()
+                    fetch(URL)
+                    .then((response) => {
+                    if (response.ok) {
+                    hideLoader();
+                    return response.json()
+                    } else {
+                    throw new Error("NETWORK RESPONSE ERROR");
+                    }
+                    })
+                    .then(data => {
+                    console.log(data.data);
+                    dataStore = data.data
+                    displayCrypto(data.data)
+                    })
+                    .catch((error) => console.error("FETCH ERROR", error))
+
+
+                    // Function to hide the loader
+                    function hideLoader() {
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('mytable').style.display = '';
+                    }
+                    function hideTable() {
+                    document.getElementById('mytable').style.display = 'none';
+                    }
+
+                    function displayCrypto(data) {
+                    console.log(data)
+                    let tab = "";
+
+                    // Loop to access all rows
+                    for (let cryptodata of data) {
+                    tab += `
+                    <tr key=${cryptodata.id}>
+                        <td>${cryptodata.rank}</td>
+                        <td>${cryptodata.name}</td>
+                        <td>$${cryptodata.priceUsd}</td>
+                        <td>$${cryptodata.marketCapUsd}</td>
+                        <td>${cryptodata.supply}</td>
+                        <td>${cryptodata.volumeUsd24Hr}</td>
+                    </tr>
+                    `;
+                    }
+                    // Setting innerHTML as tab variable
+                    document.getElementById("table-data").innerHTML = tab;
+                    }
+                    })
+
+
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+        <div id="mytable" class="mytable">
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Market Cap</th>
+                        <th>Supply</th>
+                        <th>Volume(24hr)</th>
+                    </tr>
+                </thead>
+                <tbody id="table-data">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="./main.js"></script>
+</body>
+
+</html>
