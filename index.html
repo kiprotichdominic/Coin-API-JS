@@ -24,69 +24,19 @@
             </ul>
         </div>
         <div class="d-flex justify-content-center">
-            <div action="">
-                <input placeholder="Search for Crypto By Name" type="text" name="searchbar" id="searchbar">
+            <div action="" class="search-bar">
+                <input type="search" name="search" placeholder="Search for Crypto By Name" pattern=".*\S.*"
+                    id="searchbar" required>
+                <button class="search-btn" type="submit">
+                    <span>Search</span>
+                </button>
             </div>
             <div class="spinner">
                 <div class="lds-roller" id="loading">
                     <div></div>
                     <div></div>
-                    <div></div>console.log("Its Working");
-
-
-                    window.addEventListener("DOMContentLoaded", (event) => {
-                    console.log("DOM Fully loaded")
-                    const URL = "https://api.coincap.io/v2/assets";
-                    hideTable()
-                    fetch(URL)
-                    .then((response) => {
-                    if (response.ok) {
-                    hideLoader();
-                    return response.json()
-                    } else {
-                    throw new Error("NETWORK RESPONSE ERROR");
-                    }
-                    })
-                    .then(data => {
-                    console.log(data.data);
-                    dataStore = data.data
-                    displayCrypto(data.data)
-                    })
-                    .catch((error) => console.error("FETCH ERROR", error))
-
-
-                    // Function to hide the loader
-                    function hideLoader() {
-                    document.getElementById('loading').style.display = 'none';
-                    document.getElementById('mytable').style.display = '';
-                    }
-                    function hideTable() {
-                    document.getElementById('mytable').style.display = 'none';
-                    }
-
-                    function displayCrypto(data) {
-                    console.log(data)
-                    let tab = "";
-
-                    // Loop to access all rows
-                    for (let cryptodata of data) {
-                    tab += `
-                    <tr key=${cryptodata.id}>
-                        <td>${cryptodata.rank}</td>
-                        <td>${cryptodata.name}</td>
-                        <td>$${cryptodata.priceUsd}</td>
-                        <td>$${cryptodata.marketCapUsd}</td>
-                        <td>${cryptodata.supply}</td>
-                        <td>${cryptodata.volumeUsd24Hr}</td>
-                    </tr>
-                    `;
-                    }
-                    // Setting innerHTML as tab variable
-                    document.getElementById("table-data").innerHTML = tab;
-                    }
-                    })
-
-
+                    <div></div>
+                    <div></div>
                     <div></div>
                     <div></div>
                     <div></div>
