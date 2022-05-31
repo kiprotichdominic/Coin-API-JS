@@ -1,10 +1,39 @@
-Project Requirements
-Your app must be a HTML/CSS/JS frontend that accesses data from a public API. All interactions between the client and the API should be handled asynchronously and use JSON as the communication format.
+## PROJECT NAME 
+**COIN API**
 
-Your entire app must run on a single page. There should be NO redirects. In other words, your project will contain a single HTML file.
 
-Your app needs to incorporate at least 3 separate event listeners (DOMContentLoaded, click, change, submit, etc).
+## AUTHOR 
+**Kiprotich Dominic Korir**
 
-Some interactivity is required. This could be as simple as adding a "like" button or adding comments. These interactions do not need to persist after reloading the page.
+## DESCRIPTION
+- This project allows users to view cryptocurrencies from free COIN API and be able to search any crypto they want to.
 
-Follow good coding practices. Keep your code DRY (Do not repeat yourself) by utilizing functions to abstract repetitive code.
+
+
+## User Story
+
+- Users view Crypto currencies according to rank.
+- Users can sort crypto by name
+
+# Technologies Used
+
+* HTML5
+* Javascript
+* CSS
+
+## APIs 
+This application user one api from COIN API.
+
+- Crypto API Endpoint - https://api.coincap.io/v2/assets/
+
+  
+
+  ## Contact Information   
+If you have any question or contributions, please email me at [kiprotichkorir36@gmail.com]  
+
+
+## live link 
+[COIN API JS]()
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
